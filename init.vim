@@ -25,6 +25,7 @@ Plug 'w0rp/ale'
 
 Plug 'valloric/youcompleteme'
 Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
 
 call plug#end()
@@ -43,6 +44,8 @@ set expandtab
 set cursorline
 set clipboard+=unnamedplus
 set hidden
+set ignorecase
+set smartcase
 colorscheme dracula
 
 
@@ -50,6 +53,7 @@ let $MYVIMRC = '$HOME/.config/nvim/init.vim'
 let mapleader = ';'
 
 inoremap ;; <Esc>
+vnoremap ;; <Esc> 
 nnoremap <Space> :
 
 
