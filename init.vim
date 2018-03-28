@@ -41,6 +41,8 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 set cursorline
+set clipboard+=unnamedplus
+set hidden
 colorscheme dracula
 
 
@@ -81,6 +83,7 @@ let g:lightline.active = {
 
 
 " Toggle NERDTree
+let NERDTreeShowHidden=1
 function! OpenNerdTree()
   if &modifiable && strlen(expand('%')) > 0 && !&diff
     NERDTreeFind
@@ -98,6 +101,7 @@ nnoremap <leader>f :Ag<CR>
 
 
 " Prettier configs
+let g:prettier#config#trailing_comma = 'all'
 let g:prettier#config#bracket_spacing = 'true'
 let g:prettier#autoformat = 0
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
@@ -134,4 +138,5 @@ nnoremap <silent> <C-h> :TmuxNavigateLeft<CR>
 nnoremap <silent> <C-j> :TmuxNavigateDown<CR>
 nnoremap <silent> <C-k> :TmuxNavigateUp<CR>
 nnoremap <silent> <C-l> :TmuxNavigateRight<CR>
+
 
