@@ -48,6 +48,7 @@ set ignorecase
 set smartcase
 colorscheme dracula
 
+"let g:indentLine_setConceal = 0
 
 let $MYVIMRC = '$HOME/.config/nvim/init.vim'
 let mapleader = ';'
@@ -98,6 +99,11 @@ endfunction
 nnoremap <silent> <C-\> :call OpenNerdTree()<CR>
 
 
+" Commenter configs
+let g:NERDCompactSexyComs = 1
+let g:NERDSpaceDelims = 1
+
+
 " FZF configs
 nnoremap <leader>p :Files<CR>
 nnoremap <leader>b :Buffers<CR>
@@ -115,7 +121,7 @@ autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.gra
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
 let g:ale_linters = {
-\   'javascript': [ 'eslint', 'flow' ]
+\   'javascript': [ 'flow' ]
 \ }
 
 
@@ -143,4 +149,11 @@ nnoremap <silent> <C-j> :TmuxNavigateDown<CR>
 nnoremap <silent> <C-k> :TmuxNavigateUp<CR>
 nnoremap <silent> <C-l> :TmuxNavigateRight<CR>
 
+" Operator Mono Lig
+hi htmlArg gui=italic
+hi Comment gui=italic
+hi Type    gui=italic
+hi htmlArg cterm=italic
+hi Comment cterm=italic
+hi Type    cterm=italic
 
