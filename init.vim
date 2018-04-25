@@ -23,10 +23,16 @@ Plug 'mxw/vim-jsx'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'w0rp/ale'
 
-Plug 'valloric/youcompleteme'
+" Autocomplete
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'wokalski/autocomplete-flow'
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
+
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
+Plug 'mattn/emmet-vim'
 
 call plug#end()
 
@@ -46,9 +52,8 @@ set clipboard+=unnamedplus
 set hidden
 set ignorecase
 set smartcase
+let g:dracula_colorterm=0
 colorscheme dracula
-
-"let g:indentLine_setConceal = 0
 
 let $MYVIMRC = '$HOME/.config/nvim/init.vim'
 let mapleader = ';'
@@ -56,6 +61,12 @@ let mapleader = ';'
 inoremap ;; <Esc>
 vnoremap ;; <Esc> 
 nnoremap <Space> :
+
+
+" Deoplete configs
+let g:deoplete#enable_at_startup = 1
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 
 " Statusline configs
@@ -121,8 +132,10 @@ autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.gra
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
 let g:ale_linters = {
-\   'javascript': [ 'flow' ]
+\   'javascript': [ 'eslint', 'flow' ]
 \ }
+nmap <silent> <leader>aj :ALENext<CR>
+nmap <silent> <leader>ak :ALEPrevious<CR>
 
 
 " EasyMotion configs
