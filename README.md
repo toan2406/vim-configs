@@ -15,6 +15,7 @@
 * Visual a word `vaw`
 * Visual inside word `viw`
 * Visual 3 words `v3aw`
+* Visual a paragraph `vap`
 
 #### Surround
 * Surround selected `S"`
