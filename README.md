@@ -14,6 +14,7 @@
 * Visual inside block `vi{`
 * Visual a word `vaw`
 * Visual inside word `viw`
+* Visual 3 words `v3aw`
 
 #### Surround
 * Surround selected `S"`
