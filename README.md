@@ -18,3 +18,9 @@
 #### Surround
 * Surround selected `S"`
 * Surround inside word `ysiw"`
+
+#### Navigate
+* Jump to next char `f<char>`
+
+#### Find
+* Find word at cursor `*`
