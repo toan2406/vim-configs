@@ -5,9 +5,9 @@
 * Refresh NERDTree `R`
 
 #### Comment
-* Comment lines `;c<space>` `;cm`
-* Comment selected `;cc`
-* Uncomment `;cu`
+* Comment lines `,c<space>` `,cm`
+* Comment selected `,cc`
+* Uncomment `,cu`
 
 #### Select
 * Visual a block `va{`
