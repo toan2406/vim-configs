@@ -23,6 +23,8 @@
 
 #### Navigate
 * Jump to next char `f<char>`
+* Jump to another end bracket `%`
+* Jump to another end in visual selection `o`
 
 #### Find
 * Find word at cursor `*`
