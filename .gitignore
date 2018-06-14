@@ -1,0 +1,7 @@
+*
+
+!.gitignore
+!init.vim
+!README.md
+!UltiSnips/
+!UltiSnips/*
