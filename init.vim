@@ -2,6 +2,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 " UI
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'jacoborus/tender.vim'
 Plug 'Yggdroot/indentLine'
 
 " Navigation
@@ -28,11 +29,17 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'wokalski/autocomplete-flow'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
+Plug 'SirVer/ultisnips'
 
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
 Plug 'mattn/emmet-vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'terryma/vim-multiple-cursors'
+
+" Rust support
+Plug 'rust-lang/rust.vim'
 
 call plug#end()
 
@@ -52,16 +59,22 @@ set clipboard+=unnamedplus
 set hidden
 set ignorecase
 set smartcase
+set relativenumber
 let g:dracula_colorterm=0
 colorscheme dracula
 
 let $MYVIMRC = '$HOME/.config/nvim/init.vim'
-let mapleader = ';'
+let mapleader = ','
 
-inoremap ;; <Esc>
-vnoremap ;; <Esc> 
+inoremap jj <Esc>
 nnoremap <Space> :
+nnoremap \ ,
 
+
+" UltiSnips configs
+let g:UltiSnipsSnippetsDir = '~/.config/nvim/UltiSnips'
+let g:UltiSnipsExpandTrigger = '<nop>'
+inoremap <expr> <CR> pumvisible() ? "<C-R>=UltiSnips#ExpandSnippetOrJump()<CR>" : "\<CR>"
 
 " Deoplete configs
 let g:deoplete#enable_at_startup = 1
@@ -99,7 +112,7 @@ let g:lightline.active = {
 
 
 " Toggle NERDTree
-let NERDTreeShowHidden=1
+let NERDTreeShowHidden = 1
 function! OpenNerdTree()
   if &modifiable && strlen(expand('%')) > 0 && !&diff
     NERDTreeFind
