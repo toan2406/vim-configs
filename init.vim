@@ -27,9 +27,9 @@ Plug 'w0rp/ale'
 " Autocomplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'wokalski/autocomplete-flow'
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'
-Plug 'SirVer/ultisnips'
+" Plug 'Shougo/neosnippet'
+" Plug 'Shougo/neosnippet-snippets'
+" Plug 'SirVer/ultisnips'
 
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
@@ -61,6 +61,7 @@ set ignorecase
 set smartcase
 set relativenumber
 let g:dracula_colorterm=0
+let g:indentLine_color_term=240
 colorscheme dracula
 
 let $MYVIMRC = '$HOME/.config/nvim/init.vim'
@@ -72,9 +73,9 @@ nnoremap \ ,
 
 
 " UltiSnips configs
-let g:UltiSnipsSnippetsDir = '~/.config/nvim/UltiSnips'
-let g:UltiSnipsExpandTrigger = '<nop>'
-inoremap <expr> <CR> pumvisible() ? "<C-R>=UltiSnips#ExpandSnippetOrJump()<CR>" : "\<CR>"
+" let g:UltiSnipsSnippetsDir = '~/.config/nvim/UltiSnips'
+" let g:UltiSnipsExpandTrigger = '<nop>'
+" inoremap <expr> <CR> pumvisible() ? '<C-R>=UltiSnips#ExpandSnippetOrJump()<CR>' : '\<CR>'
 
 
 " Deoplete configs
