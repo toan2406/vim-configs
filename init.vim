@@ -23,10 +23,11 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'w0rp/ale'
+Plug 'ludovicchabant/vim-gutentags'
 
 " Autocomplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'wokalski/autocomplete-flow'
+" Plug 'wokalski/autocomplete-flow'
 " Plug 'Shougo/neosnippet'
 " Plug 'Shougo/neosnippet-snippets'
 " Plug 'SirVer/ultisnips'
@@ -87,7 +88,10 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " Statusline configs
 let g:lightline = {}
 let g:lightline.colorscheme = 'Dracula'
-let g:lightline.component_function = { 'gitbranch': 'fugitive#head' }
+let g:lightline.component_function = {
+\   'gitbranch': 'fugitive#head',
+\   'gutentags': 'gutentags#statusline'
+\ }
 let g:lightline.component_expand = {
 \   'linter_checking': 'lightline#ale#checking',
 \   'linter_warnings': 'lightline#ale#warnings',
@@ -108,7 +112,8 @@ let g:lightline.active = {
 \   'right': [
 \     [ 'lineinfo' ],
 \     [ 'percent' ],
-\     [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ]
+\     [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ],
+\     [ 'gutentags' ]
 \   ]
 \ }
 
@@ -131,9 +136,9 @@ let g:NERDSpaceDelims = 1
 
 
 " FZF configs
-nnoremap <leader>p :Files<CR>
-nnoremap <leader>b :Buffers<CR>
-nnoremap <leader>f :Ag<CR>
+nnoremap <leader>p :Files!<CR>
+nnoremap <leader>b :Buffers!<CR>
+nnoremap <leader>f :Ag!<CR>
 
 
 " Prettier configs
@@ -161,6 +166,17 @@ map <leader>j <Plug>(easymotion-j)
 map <leader>k <Plug>(easymotion-k)
 
 
+" Gutentags configs
+" Require universal-ctags
+let g:gutentags_ctags_exclude = ['*.min.js', '*.min.css', 'build', 'vendor', '.git', 'node_modules', '*.vim/bundle/*']
+let g:gutentags_define_advanced_commands = 1
+augroup MyGutentagsStatusLineRefresher
+  autocmd!
+  autocmd User GutentagsUpdating call lightline#update()
+  autocmd User GutentagsUpdated call lightline#update()
+augroup END
+
+
 " Edit and source configs
 nnoremap <silent> <leader>ec :e $MYVIMRC<CR>
 nnoremap <silent> <leader>sc :source $MYVIMRC<CR>
@@ -186,3 +202,6 @@ hi htmlArg cterm=italic
 hi Comment cterm=italic
 hi Type    cterm=italic
 
+
+" Visual bg color for Tender
+hi Visual  ctermbg=240
