@@ -23,7 +23,10 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'w0rp/ale'
+
+" Tags
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'majutsushi/tagbar'
 
 " Autocomplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -61,9 +64,11 @@ set hidden
 set ignorecase
 set smartcase
 set relativenumber
+set lazyredraw
+set scrolloff=10
 let g:dracula_colorterm=0
 let g:indentLine_color_term=240
-colorscheme dracula
+colorscheme tender
 
 let $MYVIMRC = '$HOME/.config/nvim/init.vim'
 let mapleader = ','
@@ -87,7 +92,7 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Statusline configs
 let g:lightline = {}
-let g:lightline.colorscheme = 'Dracula'
+let g:lightline.colorscheme = 'tender'
 let g:lightline.component_function = {
 \   'gitbranch': 'fugitive#head',
 \   'gutentags': 'gutentags#statusline'
@@ -130,6 +135,10 @@ endfunction
 nnoremap <silent> <C-\> :call OpenNerdTree()<CR>
 
 
+" Toggle Tagbar
+nnoremap <silent> <C-[> :TagbarToggle<CR>
+
+
 " Commenter configs
 let g:NERDCompactSexyComs = 1
 let g:NERDSpaceDelims = 1
@@ -139,6 +148,7 @@ let g:NERDSpaceDelims = 1
 nnoremap <leader>p :Files!<CR>
 nnoremap <leader>b :Buffers!<CR>
 nnoremap <leader>f :Ag!<CR>
+nnoremap <silent> <leader>w :Ag! <C-R><C-W><CR>
 
 
 " Prettier configs
