@@ -40,3 +40,9 @@
 
 * Jump to definition `<C-]>`
 * Go back `<C-t>`
+
+#### Replace Multiple
+
+* Search with `/`
+* Change searched text `gnc`
+* Repeat `n.`

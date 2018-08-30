@@ -9,6 +9,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'easymotion/vim-easymotion'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'mhinz/vim-startify'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -23,6 +24,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'w0rp/ale'
+Plug 'ap/vim-css-color'
 
 " Tags
 Plug 'ludovicchabant/vim-gutentags'
@@ -68,6 +70,7 @@ set lazyredraw
 set scrolloff=10
 let g:dracula_colorterm=0
 let g:indentLine_color_term=240
+let g:indentLine_bufNameExclude=['_.*', 'NERD_tree.*']
 colorscheme tender
 
 let $MYVIMRC = '$HOME/.config/nvim/init.vim'
@@ -159,6 +162,8 @@ autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.gra
 
 
 " Ale configs
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_enter = 0
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
 let g:ale_linters = {
@@ -215,3 +220,21 @@ hi Type    cterm=italic
 
 " Visual bg color for Tender
 hi Visual  ctermbg=240
+
+
+" Startify configs
+let g:startify_custom_header = [
+      \ "        .          .        ",
+      \ "      ';;,.        ::'      ",
+      \ "    ,:::;,,'       :ccc,    ",
+      \ "   ,::c::,,,,.     :cccc,   ",
+      \ "   ,cccc:;;;;;.    cllll,   ",
+      \ "   ,cccc;.;;;;;,   cllll;   ",
+      \ "   ;cccc; .;;;;;;. coooo;   ",
+      \ "   ;llll;   ,:::::'loooo;   ",
+      \ "   ;llll:    ':::::loooo:   ",
+      \ "   :oooo:     .::::llodd:   ",
+      \ "   .;ooo:       ;cclooo:.   ",
+      \ "     .;oc        'coo;.     ",
+      \ "       .'         .,.       ",
+      \ ]
