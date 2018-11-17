@@ -46,3 +46,9 @@
 * Search with `/`
 * Change searched text `gnc`
 * Repeat `n.`
+
+#### Search
+
+* Go to previous search in Ag interactive mode `<C-p>`
+* Search file `,p`
+* Search text `,f`
