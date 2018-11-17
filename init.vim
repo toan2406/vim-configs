@@ -43,9 +43,11 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'mattn/emmet-vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'junegunn/gv.vim'
 
-" Rust support
+" Other languages support
 Plug 'rust-lang/rust.vim'
+Plug 'neovimhaskell/haskell-vim'
 
 call plug#end()
 
@@ -71,6 +73,7 @@ set scrolloff=10
 let g:dracula_colorterm=0
 let g:indentLine_color_term=240
 let g:indentLine_bufNameExclude=['_.*', 'NERD_tree.*']
+let g:fzf_history_dir='~/.local/share/fzf-history'
 colorscheme tender
 
 let $MYVIMRC = '$HOME/.config/nvim/init.vim'
@@ -167,7 +170,7 @@ let g:ale_lint_on_enter = 0
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
 let g:ale_linters = {
-\   'javascript': [ 'eslint', 'flow' ]
+\   'javascript': [ 'eslint' ]
 \ }
 nmap <silent> <leader>aj :ALENext<CR>
 nmap <silent> <leader>ak :ALEPrevious<CR>
@@ -192,6 +195,12 @@ augroup MyGutentagsStatusLineRefresher
 augroup END
 
 
+" Haskell
+let g:haskell_indent_if = 3
+let g:haskell_indent_let = 4
+let g:haskell_indent_guard = 2
+
+
 " Edit and source configs
 nnoremap <silent> <leader>ec :e $MYVIMRC<CR>
 nnoremap <silent> <leader>sc :source $MYVIMRC<CR>
@@ -207,6 +216,17 @@ nnoremap <silent> <C-h> :TmuxNavigateLeft<CR>
 nnoremap <silent> <C-j> :TmuxNavigateDown<CR>
 nnoremap <silent> <C-k> :TmuxNavigateUp<CR>
 nnoremap <silent> <C-l> :TmuxNavigateRight<CR>
+
+
+" Disable arrow keys
+noremap <up> <nop>
+noremap <down> <nop>
+noremap <left> <nop>
+noremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
 
 
 " Operator Mono Lig
@@ -238,3 +258,4 @@ let g:startify_custom_header = [
       \ "     .;oc        'coo;.     ",
       \ "       .'         .,.       ",
       \ ]
+
